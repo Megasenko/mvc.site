@@ -15,6 +15,7 @@ class Route
         $actionName = 'index';
 
         $toExplode = explode('?', $_SERVER['REQUEST_URI']);
+
         $routes = explode('/', $toExplode[0]);
         $params = isset($toExplode[1]) ? $toExplode[1] : null;
 
@@ -42,25 +43,25 @@ class Route
 
         // подцепляем файл с классом модели (файла модели может и не быть)
 
-        $model_file = $modelName . '.php';
-        $model_path = "application/models/" . $model_file;
-        if (file_exists($model_path)) {
-            include "application/models/" . $model_file;
-        }
+//        $model_file = $modelName . '.php';
+//        $model_path = "application/models/" . $model_file;
+//        if (file_exists($model_path)) {
+//            include "application/models/" . $model_file;
+//        }
 
         // подцепляем файл с классом контроллера
-        $controller_file = $controllerName . '.php';
-        $controller_path = "application/controllers/" . $controller_file;
+//        $controller_file = $controllerName . '.php';
+//        $controller_path = "application/controllers/" . $controller_file;
 
-        if (file_exists($controller_path)) {
-            include "application/controllers/" . $controller_file;
-        } else {
-            /*
-            правильно было бы кинуть здесь исключение,
-            но для упрощения сразу сделаем редирект на страницу 404
-            */
-            Route::ErrorPage404();
-        }
+//        if (file_exists($controller_path)) {
+//            include "application/controllers/" . $controller_file;
+//        } else {
+//            /*
+//            правильно было бы кинуть здесь исключение,
+//            но для упрощения сразу сделаем редирект на страницу 404
+//            */
+//            Route::ErrorPage404();
+//        }
 
         // создаем контроллер
         $controller = new $controllerName;
@@ -81,7 +82,7 @@ class Route
 
     }
 
-    function ErrorPage404()
+   static function ErrorPage404()
     {
         $host = 'http://' . $_SERVER['HTTP_HOST'] . '/';
         header('HTTP/1.1 404 Not Found');

@@ -11,14 +11,15 @@ class ControllerBlog extends Controller
 
     public function indexAction()
     {
-        $data = $this->model->getPosts();
-        $this->view->generate('blog_view.php', $data);
+        $data = $this->model->getArticles();
+        $this->view->generate('blogView.php', $data);
     }
 
     public function postAction($myKey)
     {
-        $data = $this->model->getContentOneNews($myKey);
-        $this->view->generate('single_view.php', $data);
+        $data = $this->model->getArticle($myKey);
+        $this->view->generate('singleView.php', $data);
+
     }
 
 }

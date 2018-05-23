@@ -11,19 +11,18 @@ class Model
         > методы для работы с NoSQL;
         > и др.
     */
-    // Метод подключения к базе данныхs
+    // Метод подключения к базе данных
+
 
     public function connect()
     {
-        $connect = '';
-        try {
-            $connect = new Mysqli(HOST, USERNAME, PASSWORD, DATABASE);
-            $connect->set_charset(CHARSET);
-        } catch (Exception $ex) {
-            echo $ex->getMessage();
-        }
 
-        return $connect;
+        return new PDO(
+            'mysql:host=' . HOST . ';
+            dbname=' . DB_NAME . '; charset=' . CHARSET,
+            USER,
+            PASSWORD
+        );
     }
 
     // метод выборки данных

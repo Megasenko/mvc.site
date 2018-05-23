@@ -1,7 +1,8 @@
 <?php
-define('HOST', 'localhost');
-define('USERNAME', 'root');
-define('PASSWORD', '19888813');
-define('DATABASE', 'mvc_db');
-define('CHARSET', 'utf8');
+
 define('DS', DIRECTORY_SEPARATOR);
+const HOST = 'localhost';
+const DB_NAME = 'custom_blog';
+const USER = 'root';
+const PASSWORD = 'dimidi19';
+const CHARSET = 'utf8';

@@ -4,6 +4,6 @@ class ControllerMain extends Controller
 {
     function indexAction()
     {
-        $this->view->generate('main_view.php', 'template_view.php');
+        $this->view->generate('mainView.php', 'templateView.php');
     }
 }
